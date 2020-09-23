@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -7,8 +8,9 @@ import { Validators, FormControl } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  constructor() { }
+  constructor(private snackbar: MatSnackBar) { }
 
+  hide = true
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required, Validators.minLength(8)]);
 
@@ -21,6 +23,10 @@ export class LoginComponent implements OnInit {
     return this.password.hasError('required') ? 'Password cannot be blank' :
       this.password.hasError('password') ? 'Not a valid password' :
         '';
+  }
+
+  onClicked() {
+    this.snackbar.open("Login Successful", "end now", { duration: 4000 });
   }
 
   ngOnInit(): void { }
