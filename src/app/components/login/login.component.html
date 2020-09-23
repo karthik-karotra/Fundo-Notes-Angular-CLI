@@ -35,8 +35,11 @@
 
             <mat-form-field [style.fontSize.px]="12" appearance="outline">
                 <mat-label>Enter your password</mat-label>
-                <input matInput placeholder="Password" name="password" type="password" required>
-                <mat-icon>visibility</mat-icon>
+                <input matInput placeholder="Password" name="password" [type]="hide ? 'password' : 'text'" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
             </mat-form-field>
         </div>
         <div class="login-button" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap=10%>
