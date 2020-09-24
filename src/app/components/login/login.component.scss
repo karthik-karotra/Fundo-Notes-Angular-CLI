@@ -1,37 +1,36 @@
 .f {
     color: #4285F4;
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
 }
 
 .u {
-    color: #DB4437
+    color: #DB4437;
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+    
 }
 
 .n {
-    color: #F4B400
+    color: #F4B400;
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
 }
 
 .d {
     color: #4285F4;
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
 }
 
 .o {
-    color: #0F9D58
+    color: #0F9D58;
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
 }
 
 .oo {
-    color: #DB4437
-}
-
-.t {
-    color: #FFA500
-}
-
-.e {
-    color: #0000FF
+    color: #DB4437;
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
 }
 
 .login-main {
-    height: 90vh;
+    height: 99vh;
 
 }
 
@@ -39,4 +38,17 @@
     font-family: initial;
     font-size: 15px;
      color: black;
+}
+
+.card {
+    height: 75%;
+    border: 1px solid lightgray;
+}
+
+@media only screen and (max-device-width :750px) {
+    .card {
+        border: none;
+        box-shadow: none;
+        
+    }  
 }

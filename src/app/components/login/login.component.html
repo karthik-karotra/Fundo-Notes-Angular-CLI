@@ -1,40 +1,38 @@
 <div class="login-main" fxLayout="row" fxLayoutAlign="center center">
-    <mat-card fxFlex="33" fxFlex.xs="70">
-        <div 
-        class="login-heading" 
-        fxLayout="column" 
+    <mat-card fxFlex="33" fxFlex.xs="70" fxFlex.md="50"
+    fxFlex.sm="60" 
+    class="card">
+        <div
+        class="login-heading"
+        fxLayout="column"
         fxLayoutAlign="center center"
         >
-            <mat-card-title>
+            <mat-card-title style="margin-top: 5%">
                 <p>
-                    <span class="f">f</span>
+                    <span class="f">F</span>
                     <span class="u">u</span>
                     <span class="n">n</span>
                     <span class="d">d</span>
                     <span class="o">o</span>
                     <span class="oo">o</span>
-                    <span class="n">n</span>
-                    <span class="o">o</span>
-                    <span class="t">t</span>
-                    <span class="e">e</span>
                 </p>
             </mat-card-title>
             <h1> Sign in </h1>
             <h3> Use your Fundoo Account </h3>
         </div>
 
-        <div 
-        fxLayout="column" 
+        <div
+        fxLayout="column"
         fxLayoutAlign="center center"
         >
-            <mat-form-field [style.fontSize.px]="12" appearance="outline">
+            <mat-form-field [style.fontSize.px]="15" appearance="outline" style="width: 90%">
                 <mat-label>Email or phone</mat-label>
                 <input matInput placeholder="Email" name="email" type="text" [formControl]="email" required>
-                <mat-icon matSuffix>email</mat-icon>
+                <!-- <mat-icon matSuffix>email</mat-icon> -->
                 <mat-error *ngIf="email.invalid">{{getErrorMessageForEmail()}}</mat-error>
             </mat-form-field>
 
-            <mat-form-field [style.fontSize.px]="12" appearance="outline">
+            <mat-form-field [style.fontSize.px]="15" appearance="outline" style="width: 90%">
                 <mat-label>Enter your password</mat-label>
                 <input matInput placeholder="Password" name="password" [type]="hide ? 'password' : 'text'" [formControl]="password" required>
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
@@ -44,12 +42,42 @@
                 <mat-error *ngIf="password.invalid">{{getErrorMessageForPassword()}}</mat-error>
             </mat-form-field>
         </div>
-        <div class="login-button" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap=10%>
-            <button mat-raised-button 
+        <!-- <div
+        class="login-button"
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        fxLayoutGap="10%"
+      ></div> -->
+      <div
+        fxLayout="row"
+        fxLayoutAlign="space-between end"
+        style="padding-left: 5%; padding-right: 5%"
+      >
+        <div>
+          <a
+            href="http://fundoonotes.incubation.bridgelabz.com"
+            style="font-size: 18px; text-decoration: none"
+            target="_blank"
+            >Create Account</a
+          >
+        </div>
+        <div fxLayoutAlign="end end">
+          <button
+            style="width: 25%; background-color: #1a73e8"
+            mat-flat-button
+            color="primary"
+            (click)="onClicked()"
+          >
+            Log In
+          </button>
+        </div>
+      </div>
+        <!-- <div class="login-button" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap=10%>
+            <button mat-raised-button
             style="background-color: #0000FF;filter:brightness(1.5);color: white;" (click)="onClicked()"
             >
                 Login
             </button>
-        </div>
+        </div> -->
     </mat-card>
 </div>
