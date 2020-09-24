@@ -14,6 +14,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DashBoardComponent } from './components/dash-board/dash-board.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { DashBoardComponent } from './components/dash-board/dash-board.component
     MatButtonModule,
     BrowserModule,
     AppRoutingModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
+        MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,33 @@
-<p>dash-board works!</p>
+<mat-toolbar class="toolbar">
+    <div>
+    <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    </div>
+    <div>
+        <img
+        style="padding-left: 20px;width: 30px;
+        height: 30px;"
+          src="../../../assets/images/keepIcon.jpg"
+        />
+    </div>
+    <div style="padding-left: 15px;">
+    <h1>Keep</h1>
+    </div>
+    <div style="padding-left: 1100px;">
+        <button mat-icon-button>
+            <mat-icon>person</mat-icon>
+        </button>
+    </div>
+
+</mat-toolbar>
+
+<mat-drawer-container class="notes-container">
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+        <button mat-flat-button>Notes</button>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+        Notes you add appear here
+    </div>
+</mat-drawer-container>
