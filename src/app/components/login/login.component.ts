@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { LoginService } from "./../../services/login-service/login.service";
 
 @Component({
   selector: 'app-login',
@@ -9,9 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  constructor(private snackbar: MatSnackBar, private router: Router) { }
+  constructor(private snackbar: MatSnackBar, private router: Router,private loginService: LoginService) { }
 
   hide = true
+  cartId: string = '';
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required, Validators.minLength(8)]);
 
@@ -27,8 +29,20 @@ export class LoginComponent implements OnInit {
   }
 
   onClicked() {
-    this.snackbar.open("Login Successful", "end now", { duration: 4000 });
-    this.router.navigateByUrl('dashboard');
+    if (this.email.valid && this.password.valid) {
+      var loginData = {
+        cartId: this.cartId,
+        email: this.email.value,
+        password: this.password.value,
+      };
+      this.loginService.getUserLoggedIn(loginData).subscribe((resp) => {
+        this.snackbar.open('Login Successful', 'end now', { duration: 4000 });
+        this.router.navigateByUrl('dashboard');
+      }),
+        (error) => {
+          console.log('Error ', error);
+        };
+    }
   }
 
   ngOnInit(): void { }

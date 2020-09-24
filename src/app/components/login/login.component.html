@@ -20,7 +20,7 @@
             <h1> Sign in </h1>
             <h3> Use your Fundoo Account </h3>
         </div>
-
+        <form (ngSubmit)="onClicked()">
         <div
         fxLayout="column"
         fxLayoutAlign="center center"
@@ -28,7 +28,6 @@
             <mat-form-field [style.fontSize.px]="15" appearance="outline" style="width: 90%">
                 <mat-label>Email or phone</mat-label>
                 <input matInput placeholder="Email" name="email" type="text" [formControl]="email" required>
-                <!-- <mat-icon matSuffix>email</mat-icon> -->
                 <mat-error *ngIf="email.invalid">{{getErrorMessageForEmail()}}</mat-error>
             </mat-form-field>
 
@@ -42,12 +41,6 @@
                 <mat-error *ngIf="password.invalid">{{getErrorMessageForPassword()}}</mat-error>
             </mat-form-field>
         </div>
-        <!-- <div
-        class="login-button"
-        fxLayout="row"
-        fxLayoutAlign="center center"
-        fxLayoutGap="10%"
-      ></div> -->
       <div
         fxLayout="row"
         fxLayoutAlign="space-between end"
@@ -66,18 +59,11 @@
             style="width: 25%; background-color: #1a73e8"
             mat-flat-button
             color="primary"
-            (click)="onClicked()"
           >
             Log In
           </button>
         </div>
       </div>
-        <!-- <div class="login-button" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap=10%>
-            <button mat-raised-button
-            style="background-color: #0000FF;filter:brightness(1.5);color: white;" (click)="onClicked()"
-            >
-                Login
-            </button>
-        </div> -->
+        </form>
     </mat-card>
 </div>

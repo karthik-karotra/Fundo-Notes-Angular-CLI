@@ -16,6 +16,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DashBoardComponent } from './components/dash-board/dash-board.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { HttpService } from './services/http-service/http.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -42,9 +44,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     AppRoutingModule,
     MatButtonModule,
     MatToolbarModule,
-        MatSidenavModule
+    MatSidenavModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
