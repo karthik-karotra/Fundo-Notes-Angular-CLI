@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  constructor(private snackbar: MatSnackBar) { }
+  constructor(private snackbar: MatSnackBar, private router: Router) { }
 
   hide = true
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
 
   onClicked() {
     this.snackbar.open("Login Successful", "end now", { duration: 4000 });
+    this.router.navigateByUrl('dashboard');
   }
 
   ngOnInit(): void { }
