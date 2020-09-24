@@ -45,6 +45,17 @@
     border: 1px solid lightgray;
 }
 
+.bottom-content {
+    padding-left: 5%; 
+    padding-right: 5%;
+}
+
+
+.login-button {
+    width: 25%; 
+    background-color: #1a73e8
+}
+
 @media only screen and (max-device-width :750px) {
     .card {
         border: none;
