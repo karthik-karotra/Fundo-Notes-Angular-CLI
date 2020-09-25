@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +9,14 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   postHttpService(data, url: string) {
-    return this.http.post(url, data);
+     let options=
+           {
+           headers:new HttpHeaders
+           ({
+             'Authorization':'Bearer'+ localStorage.getItem('id'),
+             'Content-Type':'application/json'
+           })
+         }
+    return this.http.post(url, data,options);
   }
 }

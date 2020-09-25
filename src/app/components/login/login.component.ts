@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   cartId: string = '';
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required, Validators.minLength(8)]);
+  num;
 
   getErrorMessageForEmail() {
     return this.email.hasError('required') ? 'Email field cannot be blank' :
@@ -35,13 +36,21 @@ export class LoginComponent implements OnInit {
         email: this.email.value,
         password: this.password.value,
       };
-      this.loginService.getUserLoggedIn(loginData).subscribe((resp) => {
+      this.loginService.getUserLoggedIn(loginData).subscribe((resp : Response) => {
+        this.num =resp;
+        console.log('Response : ', this.num);
+        console.log('Response id: ', this.num.id);
+        localStorage.setItem('Token',resp['id']),
+        localStorage.setItem('FirstName',resp['firstName']),
+        localStorage.setItem('LastName',resp['lastName']),
+        localStorage.setItem('EmailID',resp['email']),
         this.snackbar.open('Login Successful', 'end now', { duration: 4000 });
         this.router.navigateByUrl('dashboard');
-      }),
-        (error) => {
-          console.log('Error ', error);
-        };
+      },
+        error => {
+          this.snackbar.open('Enter Valid Credentials', 'end now', { duration: 4000 });
+        }
+      );
     }
   }
 
